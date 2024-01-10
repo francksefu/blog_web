@@ -1,7 +1,11 @@
 class Post < ApplicationRecord
-  belongs_to :author, class_name: 'User', foreign_key: 'author_id'
+  belongs_to :author, class_name: 'User'
   has_many :comments
   has_many :likes
+
+  after_save :update_post_counter
+
+  private
 
   def update_post_counter
     post_counter = User.find(author_id).posts_counter
