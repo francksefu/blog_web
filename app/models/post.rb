@@ -2,6 +2,10 @@ class Post < ApplicationRecord
   belongs_to :author, class_name: 'User'
   has_many :comments
   has_many :likes
+  
+  def recent_5_comments
+    comments.order(created_at: :DESC).limit(5)
+  end
 
   after_save :update_post_counter
 
@@ -17,7 +21,5 @@ class Post < ApplicationRecord
     User.find(author_id).update(posts_counter: post_counter)
   end
 
-  def recent_5_comments
-    comments.order(created_at: :DESC).limit(5)
-  end
+  
 end
