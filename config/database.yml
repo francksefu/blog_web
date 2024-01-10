@@ -22,6 +22,11 @@ default: &default
 development:
   <<: *default
   database: blog_web_development
+  
+  host: localhost   # or the hostname or IP of your PostgreSQL server
+  port: 5433        # the port where PostgreSQL is running
+  username: postgres
+  password: "1234" 
 
   # The specified database role being used to connect to PostgreSQL.
   # To create additional roles in PostgreSQL see `$ createuser --help`.
@@ -56,6 +61,11 @@ development:
 test:
   <<: *default
   database: blog_web_test
+
+  host: localhost   # or the hostname or IP of your PostgreSQL server
+  port: 5433        # the port where PostgreSQL is running
+  username: postgres
+  password: "1234" 
 
 # As with config/credentials.yml, you never want to store sensitive information,
 # like your database password, in your source code. If your source code is
