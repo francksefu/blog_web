@@ -93,7 +93,7 @@ Comming soon ...
 
 Contributions, issues, and feature requests are welcome!
 
-Feel free to check the [issues page](https://github.com/francksefu/blog_web.git/issues).
+Feel free to check the [issues page](https://github.com/francksefu/blog_web/issues).
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
