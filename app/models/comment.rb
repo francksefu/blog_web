@@ -8,11 +8,7 @@ class Comment < ApplicationRecord
 
   def update_comments_counter
     comment_counter = post.comments_counter
-    if comment_counter.nil?
-      comment_counter = 1
-    else
-      comment_counter += 1
-    end
+    comment_counter += 1
     post.update(comments_counter: comment_counter)
   end
 end

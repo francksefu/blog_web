@@ -8,11 +8,7 @@ class Like < ApplicationRecord
 
   def update_likes_counter
     like_counter = post.likes_counter
-    if like_counter.nil?
-      like_counter = 1
-    else
-      like_counter += 1
-    end
+    like_counter += 1
     post.update(likes_counter: like_counter)
   end
 end
