@@ -3,6 +3,10 @@ class Post < ApplicationRecord
   has_many :comments
   has_many :likes
 
+  validates :title, presence: true, length: { in: 0..250 }
+  validates :comments_counter, numericality: { only_integer: true, greater_than_or_equal_to: 0 }
+  validates :likes_counter, numericality: { only_integer: true, greater_than_or_equal_to: 0 }
+
   def recent_5_comments
     comments.order(created_at: :DESC).limit(5)
   end
@@ -12,12 +16,8 @@ class Post < ApplicationRecord
   private
 
   def update_post_counter
-    post_counter = User.find(author_id).posts_counter
-    if post_counter.nil?
-      post_counter = 1
-    else
-      post_counter += 1
-    end
+    post_counter = author.posts_counter
+    post_counter += 1
     User.find(author_id).update(posts_counter: post_counter)
   end
 end
