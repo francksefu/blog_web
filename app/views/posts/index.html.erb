@@ -1,0 +1,16 @@
+<div class="container-sm mt-3 mb-3">
+  <%= render "shared/user_presentation", :user => @user %>
+  <% @posts.each do |post| %>
+  <a href="<%= user_post_path(@user.id, post.id) %>">
+    <div class="border mt-2 w-75">
+      <h5><%= post.title %></h5>
+      <p><%= post.text %><p>
+    </div>
+    <div class="border mt-0 w-75">
+    <% post.recent_5_comments.each do |comment| %>
+      <p> <%= comment.user.name %> : <%= comment.text %><p>
+    <% end %>
+    </div>
+  </a>
+  <% end %>
+</div>
