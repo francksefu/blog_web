@@ -1,11 +1,11 @@
 <div class="container-sm mt-3 mb-3">
   <%= render "shared/user_presentation", :user => @user %>
   <div class="border w-75"><%= @user.bio %> </div>
-  <%= @user.recent_3_posts.each_with_index do |post, idx| %>
+  <% @user.recent_3_posts.each do |post| %>
     <div class="border mt-2 w-75">
-      <h5><%= "Post##{idx+1}" %></h5>
-      <p><%= post.text %><p>
+    <h2>Post: <%= post.id %></h2>
+    <p><%= post.text %></p>
     </div>
   <% end %>
- 
+<a href="<%= user_posts_path(@user) %>" class="btn btn-primary justify-content-center mt-3"> See all post</a>
 </div>
