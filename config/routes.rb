@@ -17,6 +17,9 @@ Rails.application.routes.draw do
    post 'likes', to: 'likes#create'
 
    resources :users, only: [:index, :show] do
-    resources :posts, only: [:index, :show]
+    resources :posts, only: [:index, :show, :new, :create] do
+      resources :comments, only: %i[new create]
+      resources :likes, only: [:create]
+    end
    end
 end
