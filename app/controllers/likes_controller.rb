@@ -8,11 +8,10 @@ class LikesController < ApplicationController
       format.html do
         if @like.save
           flash[:success] = 'Like saved successfully'
-          redirect_to(current_user)
         else
           flash[:error] = "Error : Like didn't save"
-          redirect_to(current_user)
         end
+        redirect_to(current_user)
       end
     end
   end
