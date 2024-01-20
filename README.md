@@ -68,7 +68,7 @@ Clone this repository to your desired folder:
 
 ### Usage
 
-Comming soon ...
+In this project you are allow to add post , add comment on post and like post
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 

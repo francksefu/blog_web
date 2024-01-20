@@ -1,0 +1,11 @@
+<%= form_with model: post, url: user_posts_path, method: :post, class: "w-50", local: true do |f| %>
+<div class="input-group mb-3">
+<%= f.label :title, class: "input-group-text" %>
+<%= f.text_field :title, class: "form-control" %>
+</div>
+<div class="input-group mb-3">
+<%= f.label :text, class: "input-group-text" %>
+<%= f.text_area :text, class: "form-control" %>
+</div>
+<%= f.submit class: "btn btn-primary" %>
+<% end %>
