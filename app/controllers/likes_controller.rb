@@ -2,7 +2,7 @@ class LikesController < ApplicationController
   def new; end
 
   def create
-    @post = Post.find(params[:post][:id])
+    @post = Post.find(params[:post_id])
     @like = Like.new(post: @post, user_id: current_user.id)
     respond_to do |format|
       format.html do

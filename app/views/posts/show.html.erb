@@ -13,10 +13,15 @@
       <p> <%= comment.user.name %> : <%= comment.text %><p>
     <% end %>
     </div>
-
-<%= form_with model: @like, url: likes_path, method: :post, local: false do |f| %>
-<%= hidden_field(:post, :id) %>
-<%= f.submit "Add like", class: "btn btn-primary" %>
+<div id="hide_me">
+<%= form_with model: @like, url: user_post_likes_path(@post.author_id,@post.id), method: :post, local: false do |f| %>
+  <%= f.hidden_field :post_id, value: "1" %>
+  <%= f.submit "Add like", class: "btn btn-primary" %>
 <% end %>
+</div>
 
 </div>
+
+<script>
+  wind
+</script>
