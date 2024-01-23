@@ -2,10 +2,12 @@
   <%= render "shared/user_presentation", :user => @user %>
   <div class="border w-75"><%= @user.bio %> </div>
   <% @user.recent_3_posts.each do |post| %>
+  <a href="<%= user_post_path(@user.id, post.id) %>">
     <div class="border mt-2 w-75">
     <h2>Post: <%= post.id %></h2>
     <p><%= post.text %></p>
     </div>
+  </a>
   <% end %>
 <a href="<%= user_posts_path(@user) %>" class="btn btn-primary justify-content-center mt-3"> See all post</a>
 </div>

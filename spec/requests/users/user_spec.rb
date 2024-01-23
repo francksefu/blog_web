@@ -18,4 +18,9 @@ describe ' Controller /users' do
     expect(response.body).not_to eq nil
     expect(response).to render_template 'users/show'
   end
+
+  scenario 'Hello word' do
+    visit users_path
+    expect(page).to have_content(subject.name)
+  end
 end
