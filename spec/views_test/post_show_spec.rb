@@ -5,16 +5,25 @@ RSpec.describe 'Users/views', type: :feature do
     User.create(name: 'Ryan', photo: 'photo', bio: 'bio', posts_counter: 1)
   end
 
+  let!(:user1) do
+    User.create(name: 'Ketia', photo: 'photo', bio: 'bio', posts_counter: 1)
+  end
+
   let!(:post1) do
     Post.create(author: user, title: 'The man of the year', text: 'Kalunga sef', comments_counter: 1, likes_counter: 1)
   end
 
   let!(:comment11) do
-    Comment.create(user:, post: post1, text: 'Hello post 1')
+    Comment.create(user: user1, post: post1, text: 'Hello post 1')
   end
 
   let!(:comment12) do
-    Comment.create(user:, post: post1, text: 'second time')
+    Comment.create(user: user1, post: post1, text: 'second time')
+  end
+
+  scenario 'I can see the post s author name' do
+    visit user_post_path(user, post1)
+    expect(page).to have_content(user.name)
   end
 
   scenario 'I can see the post s title' do
@@ -29,11 +38,13 @@ RSpec.describe 'Users/views', type: :feature do
 
   scenario 'comments text' do
     visit user_post_path(user, post1)
+    expect(page).to have_content(comment11.user.name)
     expect(page).to have_content(comment11.text)
   end
 
   scenario 'comments text' do
     visit user_post_path(user, post1)
+    expect(page).to have_content(comment12.user.name)
     expect(page).to have_content(comment12.text)
   end
 

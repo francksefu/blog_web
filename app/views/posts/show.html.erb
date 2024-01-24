@@ -2,7 +2,7 @@
   
     <div class="border mt-2 w-75">
       <div class="d-flex justify-content-between">
-        <h5><%= @post.title %></h5>
+        <h5><%= @post.title %># by <%= @user.name %></h5>
         <h6 class="me-3"> comments : <%= @post.comments_counter %>, likes : <%= @post.likes_counter %></h6>
       </div>
       

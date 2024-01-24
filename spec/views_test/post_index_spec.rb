@@ -54,6 +54,12 @@ RSpec.describe 'Users/views', type: :feature do
     expect(page).to have_content(post1.text)
   end
 
+  scenario 'posts likes counter and comments counter' do
+    visit user_posts_path(user)
+    expect(page).to have_content(post1.likes_counter.to_s)
+    expect(page).to have_content(post1.comments_counter.to_s)
+  end
+
   scenario 'comments text' do
     visit user_posts_path(user)
     expect(page).to have_content(comment11.text)

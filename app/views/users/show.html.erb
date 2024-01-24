@@ -6,6 +6,10 @@
     <div class="border mt-2 w-75">
     <h2>Post: <%= post.id %></h2>
     <p><%= post.text %></p>
+    <div  class="d-flex justify-content-between">
+    <span> </span>
+    <h6 class="me-3"> comments : <%= post.comments_counter %>, likes : <%= post.likes_counter %></h6>
+    </div>
     </div>
   </a>
   <% end %>
