@@ -23,12 +23,12 @@ RSpec.describe 'Users/views', type: :feature do
   end
   scenario 'index_page redirection to show page' do
     visit users_path
-      click_link user.name
-      expect(page).to have_current_path(user_path(user))
+    click_link user.name
+    expect(page).to have_current_path(user_path(user))
   end
   scenario 'index_page redirection to show page' do
     visit users_path
-      click_link user1.name
-      expect(page).to have_current_path(user_path(user1))
+    click_link user1.name
+    expect(page).to have_current_path(user_path(user1))
   end
 end
