@@ -5,6 +5,10 @@
     <div class="border mt-2 w-75">
       <h5><%= post.title %></h5>
       <p><%= post.text %><p>
+      <div  class="d-flex justify-content-between">
+        <span> </span>
+        <h6 class="me-3"> comments : <%= post.comments_counter %>, likes : <%= post.likes_counter %></h6>
+      </div>
     </div>
     <div class="border mt-0 w-75">
     <% post.recent_5_comments.each do |comment| %>
