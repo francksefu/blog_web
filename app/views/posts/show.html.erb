@@ -11,6 +11,14 @@
     <div class="border mt-0 w-75">
     <% @post.comments.includes(:user).each do |comment| %>
       <p> <%= comment.user.name %> : <%= comment.text %><p>
+      <div id="hide_me">
+      <% if can? :destroy, comment %>
+      <%= form_with model: comment, url: user_post_comment_path(comment.post.author_id,comment.post.id, comment.id), method: :delete, local: false do |f| %>
+        <%= f.hidden_field :post_id, value: "1" %>
+        <%= f.submit "Delete comment", class: "btn btn-primary" %>
+      <% end %>
+      <% end %>
+      </div>
     <% end %>
     </div>
 <div id="hide_me">

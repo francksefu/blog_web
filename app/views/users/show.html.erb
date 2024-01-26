@@ -8,8 +8,13 @@
     <p><%= post.text %></p>
     <div  class="d-flex justify-content-between">
     <span>
-      <% if can? :manage, @user %>
-        <h6>Okay</h6>
+      <% if can? :destroy, post %>
+        <div id="hide_me">
+        <%= form_with model: post, url: user_post_path(post.author_id,post.id), method: :delete, local: false do |f| %>
+          <%= f.hidden_field :post_id, value: "1" %>
+          <%= f.submit "Delete", class: "btn btn-primary" %>
+        <% end %>
+        </div>
       <% end %>
     </span>
     <h6 class="me-3"> comments : <%= post.comments_counter %>, likes : <%= post.likes_counter %></h6>

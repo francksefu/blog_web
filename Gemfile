@@ -31,7 +31,6 @@ gem 'jbuilder'
 
 gem 'devise'
 
-gem 'cancancan'
 # Use Redis adapter to run Action Cable in production
 # gem "redis", ">= 4.0.1"
 
@@ -71,6 +70,7 @@ group :test do
   gem 'selenium-webdriver'
 end
 
+gem 'cancancan'
 gem 'rails-controller-testing'
 gem 'rspec-rails'
 gem 'rubocop', '>= 1.0', '< 2.0'

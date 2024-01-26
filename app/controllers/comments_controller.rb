@@ -25,5 +25,6 @@ class CommentsController < ApplicationController
   def destroy
     @comment = Comment.find(params[:id])
     @comment.delete
+    redirect_to(@comment.post.author)
   end
 end
