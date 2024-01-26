@@ -8,8 +8,8 @@
     <p><%= post.text %></p>
     <div  class="d-flex justify-content-between">
     <span>
-      <% if can? :destroy, post %>
-        <%= link_to "Delete post", user_post_path(post), data: {turbo_method: "delete"} %>
+      <% if can? :manage, @user %>
+        <h6>Okay</h6>
       <% end %>
     </span>
     <h6 class="me-3"> comments : <%= post.comments_counter %>, likes : <%= post.likes_counter %></h6>
