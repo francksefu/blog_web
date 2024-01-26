@@ -7,7 +7,11 @@
     <h2>Post: <%= post.id %></h2>
     <p><%= post.text %></p>
     <div  class="d-flex justify-content-between">
-    <span> </span>
+    <span>
+      <% if can? :destroy, post %>
+        <%= link_to "Delete post", user_post_path(post), data: {turbo_method: "delete"} %>
+      <% end %>
+    </span>
     <h6 class="me-3"> comments : <%= post.comments_counter %>, likes : <%= post.likes_counter %></h6>
     </div>
     </div>
