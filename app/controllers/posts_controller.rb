@@ -22,12 +22,20 @@ class PostsController < ApplicationController
       format.html do
         if @post.save
           flash[:success] = 'Post saved successfully'
-          redirect_to(current_user)
+          redirect_to(@post.author)
         else
           flash[:error] = "Error : Post didn't save"
           render :new, locals: { post: @post }
         end
       end
     end
+  end
+
+  def destroy
+    @post = Post.find(params[:id])
+    @post.comments.destroy_all
+    @post.likes.destroy_all
+    @post.delete
+    redirect_to(current_user)
   end
 end
